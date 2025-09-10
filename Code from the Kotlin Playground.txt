@@ -1,0 +1,134 @@
+fun main(){
+    //printText()
+    //getMessage()
+    //printSale()
+    //calculateTotalPartySize()
+    //calculateTotalSalary()
+    //printAddition()
+    //performMathOperations()
+    //displayAlertMessages()
+    //calculateCaloriesBurned()
+    //comparePhoneUsageTime()
+    //printWeatherReport("Ankara", 27, 31, 82)
+    //printWeatherReport("Tokyo", 32, 36, 10)
+    //printWeatherReport("Cape Town", 59, 64, 2)
+    //printWeatherReport("Guatemala City", 50, 55, 7)
+    println("Hello World!")
+}
+
+fun printText(){
+    val text: String = "Use the val keyword when the value doesn't change.\nUse the var keyword when the value can change.\nWhen you define a function, you define the parameters that can be passed to it.\nWhen you call a function, you pass arguments for the parameters."
+	println(text)
+}
+
+fun getMessage() { 
+    println("New chat message from a friend")
+}
+
+fun printSale() {
+    //var discountPercentage: Int = 0
+    //var offer: String = ""
+    val item = "Google Chromecast"
+    val discountPercentage = 20
+    val offer = "Sale - Up to $discountPercentage% discount on $item! Hurry up!"
+    println(offer)
+}
+
+fun calculateTotalPartySize() {
+    val numberOfAdults = 20
+    val numberOfKids = 30
+    val total = numberOfAdults + numberOfKids
+    println("The total party size is: $total")
+}
+
+fun calculateTotalSalary() {
+    val baseSalary = 5000
+    val bonusAmount = 1000
+    val totalSalary = baseSalary + bonusAmount
+    println("Congratulations for your bonus! You will receive a total of $totalSalary (additional bonus).")
+}
+
+fun printAddition() {
+    val firstNumber = 10
+    val secondNumber = 5
+    println("$firstNumber + $secondNumber = ${firstNumber+secondNumber}")
+}
+
+fun performMathOperations() {
+    val firstNumber = 10
+    val secondNumber = 5
+    val thirdNumber = 8
+    
+    val result = add(firstNumber, secondNumber)
+    val anotherResult = add(firstNumber, thirdNumber)
+
+    println("$firstNumber + $secondNumber = $result")
+    println("$firstNumber + $thirdNumber = $anotherResult")
+    
+    println("$firstNumber - $secondNumber = ${subtract(firstNumber, secondNumber)}")
+    println("$firstNumber * $secondNumber = ${multi(firstNumber, secondNumber)}")
+    println("$firstNumber / $secondNumber = ${div(firstNumber, secondNumber)}")
+}
+
+fun add(firstNumber: Int, secondNumber: Int): Int {
+    return firstNumber + secondNumber
+}
+
+fun subtract(firstNumber: Int, secondNumber: Int): Int {
+    return firstNumber - secondNumber
+}
+
+fun multiply(firstNumber: Int, secondNumber: Int): Int {
+    return firstNumber * secondNumber
+}
+
+fun displayAlertMessages() {
+    val firstUserEmailId = "user_one@gmail.com"
+
+    println(displayAlertMessage(email = firstUserEmailId))
+    println()
+
+    val secondUserOperatingSystem = "Windows"
+    val secondUserEmailId = "user_two@gmail.com"
+
+    println(displayAlertMessage(secondUserOperatingSystem, secondUserEmailId))
+    println()
+
+    val thirdUserOperatingSystem = "Mac OS"
+    val thirdUserEmailId = "user_three@gmail.com"
+
+    println(displayAlertMessage(thirdUserOperatingSystem, thirdUserEmailId))
+    println()
+}
+
+fun displayAlertMessage(os: String = "Unknown OS", email: String): String{
+    return "There's a new sign-in request on $os for your Google Account $email."
+}
+
+fun calculateCaloriesBurned() {
+    val steps = 4000
+    val caloriesBurned = stepsToCalories(steps);
+    println("Walking $steps steps burns $caloriesBurned calories") 
+}
+
+fun stepsToCalories(numberOfSteps: Int): Double {
+    val caloriesBurnedForEachStep = 0.04
+    val totalCaloriesBurned = numberOfSteps * caloriesBurnedForEachStep
+    return totalCaloriesBurned
+}
+
+fun comparePhoneUsageTime(){
+    println(diffTimeOnPhone(timeSpentToday=300, timeSpentYesterday=250))
+    println(diffTimeOnPhone(300, 300))
+    println(diffTimeOnPhone(200, 220))
+}
+
+fun diffTimeOnPhone(timeSpentToday: Int, timeSpentYesterday: Int): Boolean{
+    return timeSpentToday > timeSpentYesterday
+}
+
+fun printWeatherReport(city: String, lowTemp: Int, highTemp: Int, chanceRain: Int){
+    println("City: $city")
+    println("Low temperature: $lowTemp, High temperature: $highTemp")
+    println("Chance of rain: $chanceRain%\n")
+}
