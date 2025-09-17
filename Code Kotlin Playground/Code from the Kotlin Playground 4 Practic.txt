@@ -1,0 +1,115 @@
+class Song (_title: String, _artist: String, _datePublic: String, _numberListen: Int) {
+    val title: String = _title
+    val artist: String = _artist
+    val datePublic: String = _datePublic
+    val numberListen: Int = _numberListen
+    
+    var isPopular: Boolean = false
+    	set(value) {
+            if (numberListen >= 1000) { field = true }
+            else { field = false }
+        }
+        
+    fun songInfo(){
+        println("$title, performed by $artist, was released in $datePublic.")
+    }
+}
+
+class Person(val name: String, val age: Int, val hobby: String?, val referrer: Person?) {
+    fun showProfile() {
+       println("Name: $name")
+       println("Age: $age")
+       if (referrer == null) {
+       		println("Likes to $hobby. Doesn't have a referrer.") 
+       }
+       else{
+           println("Likes to $hobby. Has a referrer named Amanda, who likes to play tennis.")
+       }
+    }
+}
+
+open class Phone(var isScreenLightOn: Boolean = false){
+    open fun switchOn() {
+        isScreenLightOn = true
+    }
+    
+    fun switchOff() {
+        isScreenLightOn = false
+    }
+    
+    fun checkPhoneScreenLight() {
+        val phoneScreenLight = if (isScreenLightOn) "on" else "off"
+        println("The phone screen's light is $phoneScreenLight.")
+    }
+}
+
+class FoldablePhone : Phone () {
+    var isFolded = true
+    
+    fun setIsFolded (){
+        if (isFolded){ isFolded = false }
+        else { isFolded = true }
+    }
+    
+    override fun switchOn(){
+        if (isFolded == true){
+            isScreenLightOn = true
+        }
+    }
+}
+
+fun main() {
+    val winningBid = Bid(5000, "Private Collector")
+    
+    println("Item A is sold at ${auctionPrice(winningBid, 2000)}.")
+    println("Item B is sold at ${auctionPrice(null, 3000)}.")
+}
+
+class Bid(val amount: Int, val bidder: String)
+
+fun auctionPrice(bid: Bid?, minimumPrice: Int): Int {
+    return bid?.amount ?: minimumPrice
+}
+
+fun TemperatureMeasurement() {
+    val CelciusToFahrenheit: (Double) -> Double = {initialMeasurement -> 9.0/5.0 * initialMeasurement + 32}
+    val KelvinToCelsius: (Double) -> Double = {initialMeasurement -> initialMeasurement - 273.15}
+    val FahrenheitToKelvin: (Double) -> Double = {initialMeasurement -> 5.0/9.0 * (initialMeasurement - 32) + 273.15}
+    
+    printFinalTemperature(27.0, "Celsius", "Fahrenheit", CelciusToFahrenheit)
+    printFinalTemperature(350.0, "Kelvin", "Celsius", KelvinToCelsius)
+    printFinalTemperature(10.0, "Fahrenheit", "Kelvin", FahrenheitToKelvin)
+}
+
+fun printFinalTemperature(
+    initialMeasurement: Double, 
+    initialUnit: String, 
+    finalUnit: String, 
+    conversionFormula: (Double) -> Double
+) {
+    val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement))
+    println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
+}
+
+fun ticketPrice(age: Int, isMonday: Boolean): Int {
+    var price: Int
+    when (age) {
+        in 1..12 -> price = 15
+        in 13..60 -> price = 30    //in 13..60 -> if (isMonday) 25 else 30
+        in 61..100 -> price = 20
+        else -> return -1
+    }
+    if (isMonday && price == 30){
+        price = 25
+    }
+    return price
+}
+
+fun printNotificationSummary(numberOfMessages: Int) {
+    if (numberOfMessages < 100){
+        println("You have 51 notifications.")
+    }
+    else{
+        println("Your phone is blowing up! You have 99+ notifications.")
+    }
+}
