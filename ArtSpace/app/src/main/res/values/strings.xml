@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Art Space</string>
+    <string name="title2">"Мона Лиза"</string>
+    <string name="author2">Леонардо да Винчи (1506г.)</string>
+    <string name="title3">"Старый гитарист"</string>
+    <string name="author3">Пабло Пикассо (1904г.)</string>
+    <string name="title1">"На солнце"</string>
+    <string name="author1">И.Е.Репин (1900г.)</string>
+</resources>
