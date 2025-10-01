@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Business Card</string>
+    <string name="phone">8-919-635-42-53</string>
+    <string name="email">andreytihonov@gmail.com</string>
+    <string name="tg_contact">\@YuiYop</string>
+    <string name="full_name">Tikhonov 4417</string>
 </resources>

@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -52,7 +53,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun BusinessCard(modifier: Modifier = Modifier) {
     val background = painterResource(R.drawable.card1)
-    val image =painterResource(R.drawable.android)
+    val image = painterResource(R.drawable.android)
     val font = Font(R.font.amarante)
     Image(
         painter = background,
@@ -68,7 +69,7 @@ fun BusinessCard(modifier: Modifier = Modifier) {
             fontFamily = FontFamily(font),
         )
         Text(
-            text = "Tikhonov 4417",
+            text = stringResource(R.string.full_name),
             fontSize = 18.sp,
             color = Color.Black,
             fontFamily = FontFamily(font)
@@ -87,9 +88,9 @@ fun BusinessCard(modifier: Modifier = Modifier) {
         )
     }
     Column(modifier = Modifier.padding(start = 77.dp, top = 520.dp)){
-        DataCommunication(icon = Icons.Rounded.Phone, data = "8-919-635-42-53", title = "Phone")
-        DataCommunication(icon = Icons.Rounded.Email, data = "andreytihonov@gmail.com", title = "Email", modifier = Modifier.padding(top=27.dp))
-        DataCommunication(icon = Icons.Rounded.Send, data = "@YuiYop", title = "Telegram", modifier = Modifier.padding(top=27.dp))
+        DataCommunication(icon = Icons.Rounded.Phone, data = stringResource(R.string.phone), title = "Phone")
+        DataCommunication(icon = Icons.Rounded.Email, data = stringResource(R.string.email), title = "Email", modifier = Modifier.padding(top=27.dp))
+        DataCommunication(icon = Icons.Rounded.Send, data = stringResource(R.string.tg_contact), title = "Telegram", modifier = Modifier.padding(top=27.dp))
     }
 }
 
