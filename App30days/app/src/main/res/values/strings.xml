@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">App 30 days</string>
+
+    <string name="author1">Бенджамин Франклин</string>
+    <string name="content1">Некоторые люди умирают в 25, но их не хоронят до 75.</string>
+
+    <string name="author2">Оскар Уайлд</string>
+    <string name="content2">Большинство из нас — это не мы. Наши мысли — это чужие суждения; наша жизнь — мимикрия; наши страсти — цитата!</string>
+
+    <string name="author3">Брюс Ли</string>
+    <string name="content3">Я не боюсь того, который изучал 10 000 различных ударов; я боюсь того, кто изучил один удар 10 000 раз.</string>
+
+    <string name="author4">Фридрих Ницше</string>
+    <string name="content4">Если слишком долго вглядываешься в бездну, бездна начинает вглядываться в тебя.</string>
+
+    <string name="author5">Марк Твен</string>
+    <string name="content5">Не позволяйте школе мешать вашему образованию.</string>
+
+    <string name="author6">Джон Кеннеди</string>
+    <string name="content6">Человек может умереть, нации могут появляться и исчезать, но идея живет.</string>
+
+    <string name="author7">Оскар Уайльд</string>
+    <string name="content7">Некоторые приносят радость, куда бы они ни пришли, некоторые — откуда бы они ни ушли.</string>
+
+    <string name="author8">Экхарт Толле</string>
+    <string name="content8">Любить — значит узнавать себя в другом.</string>
+
+    <string name="author9">Бенджамин Франклин</string>
+    <string name="content9">Те, кто может отказаться от свободы ради безопасности, не достоин ни свободы, ни безопасности.</string>
+
+    <string name="author10">Халиль Джебран</string>
+    <string name="content10">Источник страха — в вашем сердце, а не в руках устрашающего.</string>
+
+    <string name="author11">Альберт Эйнштейн</string>
+    <string name="content11">Все гении. Но если оценивать рыбу по способности залезать на дерево, она всю жизнь проживет, думая, что она глупа.</string>
+
+    <string name="author12">Лао Цзы</string>
+    <string name="content12">Даже путь в тысячу ли начинается с первого шага.</string>
+
+    <string name="author13">Авраам Линкольн</string>
+    <string name="content13">Люди, не имеющие недостатков, имеют очень мало достоинств.</string>
+
+    <string name="author14">Антуан де Сент-Экзюпери</string>
+    <string name="content14">Ты живёшь в своих поступках, а не в теле. Ты — это твои действия, и нет другого тебя.</string>
+
+    <string name="author15">Фёдор Достоевский</string>
+    <string name="content15">Жизнь задыхается без цели.</string>
+
+    <string name="author16">Джон Леннон</string>
+    <string name="content16">Время, потерянное с удовольствием, не считается потерянным.</string>
+
+    <string name="author17">Конфуций</string>
+    <string name="content17">Прежде чем отправиться в путь мести, выкопайте две могилы.</string>
+
+    <string name="author18">Нил Бэррингем</string>
+    <string name="content18">Трава зеленее там, где ее поливаешь.</string>
+
+    <string name="author19">Чжуан Цзы</string>
+    <string name="content19">Мудрый человек знает, что лучше сидеть на берегу отдаленного горного ручья, чем быть императором всего мира.</string>
+
+    <string name="author20">Джереми Хаммонд</string>
+    <string name="content20">Ваш ум программируется. И если вы не будете программировать его сами, значит кто-то будет делать это за вас.</string>
+
+    <string name="author21">Бобби Соммер</string>
+    <string name="content21">Иметь низкое мнение о себе – это не скромность. Это саморазрушение.</string>
+
+    <string name="author22">Жозеф Жубер</string>
+    <string name="content22">Невозможно стать образованными, если читать только то, что нам нравится.</string>
+
+    <string name="author23">Теренс Маккена</string>
+    <string name="content23">Культура – это ваша операционная система.</string>
+
+    <string name="author24">Андре Жид</string>
+    <string name="content24">Все, что должно быть сказано, уже было сказано. Но так как никто не слушал, все должно быть повторено снова.</string>
+
+    <string name="author25">Борхес</string>
+    <string name="content25">Я совершил самый страшный грех из всех возможных грехов. Я не был счастлив.</string>
+
+    <string name="author26">Генрих Альтшуллер</string>
+    <string name="content26">Творческая личность никогда не достигает итога - его просто быть не может.</string>
+
+    <string name="author27">Иммануил Кант</string>
+    <string name="content27">Счастье есть идеал не разума, а воображения.</string>
+
+    <string name="author28">Марк Цицерон</string>
+    <string name="content28">Даже те философы, которые писали трактаты против славы, не забывали ставить своё имя в заголовке своей книги.</string>
+
+    <string name="author29">Тимур Гатауллин</string>
+    <string name="content29">Ну событие это просто какое-либо действие.</string>
+
+    <string name="author30">Ильхам Хаматуллин</string>
+    <string name="content30">Вообще все по кайфу сделаю, если только деньги будут.</string>
+</resources>
