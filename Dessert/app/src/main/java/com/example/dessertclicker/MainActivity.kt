@@ -67,14 +67,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
+import android.util.Log
 import com.example.dessertclicker.data.Datasource
 import com.example.dessertclicker.model.Dessert
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
 
+private const val TAG = "MainActivity"
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate Called")
         setContent {
             DessertClickerTheme {
                 // A surface container using the 'background' color from the theme
@@ -88,7 +91,40 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart Called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume Called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG, "onRestart Called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause Called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop Called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy Called")
+    }
 }
+
+
 
 /**
  * Determine which dessert to show.
