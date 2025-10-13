@@ -8,6 +8,7 @@ import com.example.unscramble.data.allWords
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import com.example.unscramble.data.SCORE_INCREASE
 import kotlinx.coroutines.flow.update
 
 
@@ -58,11 +59,31 @@ class GameViewModel: ViewModel() {
     fun checkUserGuess() {
 
         if (userGuess.equals(currentWord, ignoreCase = true)) {
+            val updatedScore = _uiState.value.score.plus(SCORE_INCREASE)
+            updateGameState(updatedScore)
         } else {
             _uiState.update { currentState ->
                 currentState.copy(isGuessedWordWrong = true)
             }
         }
+        updateUserGuess("")
+    }
+
+    //Обновление счета и новое слово
+    private fun updateGameState(updatedScore: Int) {
+        _uiState.update { currentState ->
+            currentState.copy(
+                isGuessedWordWrong = false,
+                currentScrambledWord = pickRandomWordAndShuffle(),
+                score = updatedScore,
+                currentWordCount = currentState.currentWordCount.inc(),
+            )
+        }
+    }
+
+    //Пропуск слова
+    fun skipWord() {
+        updateGameState(_uiState.value.score)
         updateUserGuess("")
     }
 }
