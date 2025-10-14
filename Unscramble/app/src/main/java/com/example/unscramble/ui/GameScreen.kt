@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.example.unscramble.ui
 
 import android.app.Activity
@@ -59,9 +44,7 @@ import com.example.unscramble.R
 import com.example.unscramble.ui.theme.UnscrambleTheme
 
 @Composable
-fun GameScreen(
-    gameViewModel: GameViewModel = viewModel()
-) {
+fun GameScreen(gameViewModel: GameViewModel = viewModel()) {
     val gameUiState by gameViewModel.uiState.collectAsState()
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
 
@@ -81,11 +64,11 @@ fun GameScreen(
         )
         GameLayout(
             onUserGuessChanged = { gameViewModel.updateUserGuess(it) },
+            wordCount = gameUiState.currentWordCount,
             userGuess = gameViewModel.userGuess,
             onKeyboardDone = { gameViewModel.checkUserGuess() },
             currentScrambledWord = gameUiState.currentScrambledWord,
             isGuessWrong = gameUiState.isGuessedWordWrong,
-            wordCount = gameUiState.currentWordCount,
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
@@ -120,16 +103,14 @@ fun GameScreen(
             }
         }
 
-        GameStatus(
-            score = gameUiState.score,
-            modifier = Modifier.padding(20.dp)
-        )
-    }
-    if (gameUiState.isGameOver) {
-        FinalScoreDialog(
-            score = gameUiState.score,
-            onPlayAgain = { gameViewModel.resetGame() }
-        )
+        GameStatus(score = gameUiState.score, modifier = Modifier.padding(20.dp))
+
+        if (gameUiState.isGameOver) {
+            FinalScoreDialog(
+                score = gameUiState.score,
+                onPlayAgain = { gameViewModel.resetGame() }
+            )
+        }
     }
 }
 
@@ -143,17 +124,18 @@ fun GameStatus(score: Int, modifier: Modifier = Modifier) {
             style = typography.headlineMedium,
             modifier = Modifier.padding(8.dp)
         )
+
     }
 }
 
 @Composable
 fun GameLayout(
     currentScrambledWord: String,
+    wordCount: Int,
     isGuessWrong: Boolean,
     userGuess: String,
     onUserGuessChanged: (String) -> Unit,
     onKeyboardDone: () -> Unit,
-    wordCount: Int,
     modifier: Modifier = Modifier
 ) {
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
@@ -168,11 +150,6 @@ fun GameLayout(
             modifier = Modifier.padding(mediumPadding)
         ) {
             Text(
-                text = currentScrambledWord,
-                fontSize = 45.sp,
-                modifier = modifier.align(Alignment.CenterHorizontally)
-            )
-            Text(
                 modifier = Modifier
                     .clip(shapes.medium)
                     .background(colorScheme.surfaceTint)
@@ -183,7 +160,7 @@ fun GameLayout(
                 color = colorScheme.onPrimary
             )
             Text(
-                text = "scrambleun",
+                text = currentScrambledWord,
                 style = typography.displayMedium
             )
             Text(
@@ -194,7 +171,13 @@ fun GameLayout(
             OutlinedTextField(
                 value = userGuess,
                 singleLine = true,
+                shape = shapes.large,
                 modifier = Modifier.fillMaxWidth(),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = colorScheme.surface,
+                    unfocusedContainerColor = colorScheme.surface,
+                    disabledContainerColor = colorScheme.surface,
+                ),
                 onValueChange = onUserGuessChanged,
                 label = {
                     if (isGuessWrong) {
@@ -209,7 +192,7 @@ fun GameLayout(
                 ),
                 keyboardActions = KeyboardActions(
                     onDone = { onKeyboardDone() }
-                ),
+                )
             )
         }
     }
