@@ -145,14 +145,14 @@ private fun DessertClickerApp(
     viewModel: DessertViewModel = viewModel()
 ) {
     val uiState by viewModel.dessertUiState.collectAsState()
-    DessertClickerApp(
+    DessertClicker(
         uiState = uiState,
         onDessertClicked = viewModel::onDessertClicked
     )
 }
 
 @Composable
-private fun DessertClickerApp(
+private fun DessertClicker(
     uiState: DessertUiState,
     onDessertClicked: () -> Unit
 ) {
