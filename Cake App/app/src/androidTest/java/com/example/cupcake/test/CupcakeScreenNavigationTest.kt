@@ -16,7 +16,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import com.example.cupcake.R
-import org.junit.Assert.assertEquals
 import java.util.Locale
 
 class CupcakeScreenNavigationTest {

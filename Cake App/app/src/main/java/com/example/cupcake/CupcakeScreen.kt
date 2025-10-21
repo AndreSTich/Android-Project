@@ -49,9 +49,6 @@ import com.example.cupcake.ui.OrderViewModel
 import com.example.cupcake.ui.SelectOptionScreen
 import com.example.cupcake.ui.StartOrderScreen
 
-/**
- * Composable that displays the topBar and displays back button if back navigation is possible.
- */
 enum class CupcakeScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
     Flavor(title = R.string.choose_flavor),
@@ -178,8 +175,8 @@ private fun cancelOrderAndNavigateToStart(
 private fun shareOrder(context: Context, subject: String, summary: String) {
     val intent = Intent(Intent.ACTION_SEND).apply {
         type = "text/plain"
-        putExtra(Intent.EXTRA_SUBJECT, subject)
-        putExtra(Intent.EXTRA_TEXT, summary)
+        putExtra(Intent.EXTRA_SUBJECT, subject) //тема
+        putExtra(Intent.EXTRA_TEXT, summary)  //текст
     }
     context.startActivity(
         Intent.createChooser(

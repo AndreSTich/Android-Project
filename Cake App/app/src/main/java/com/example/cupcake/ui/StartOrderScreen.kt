@@ -41,11 +41,6 @@ import com.example.cupcake.R
 import com.example.cupcake.data.DataSource
 import com.example.cupcake.ui.theme.CupcakeTheme
 
-/**
- * Composable that allows the user to select the desired cupcake quantity and expects
- * [onNextButtonClicked] lambda that expects the selected quantity and triggers the navigation to
- * next screen
- */
 @Composable
 fun StartOrderScreen(
     quantityOptions: List<Pair<Int, Int>>,
@@ -91,10 +86,6 @@ fun StartOrderScreen(
     }
 }
 
-/**
- * Customizable button composable that displays the [labelResourceId]
- * and triggers [onClick] lambda when this composable is clicked
- */
 @Composable
 fun SelectQuantityButton(
     @StringRes labelResourceId: Int,

@@ -7,6 +7,8 @@ import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 
+//Generic-класс наследуемый от ComponentActivity, основной класс и правило тестирования
+//в определении расширяющего метода для поиска элемента с текстом по id
 fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.onNodeWithStringId(
     @StringRes id: Int
 ): SemanticsNodeInteraction = onNodeWithText(activity.getString(id))
