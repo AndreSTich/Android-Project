@@ -39,7 +39,10 @@ import com.example.mycity.data.categories
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CityScreen(navController: NavController) {
+fun CityScreen(
+    navController: NavController,
+    onCategorySelected: (Category) -> Unit = {}
+) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -66,7 +69,8 @@ fun CityScreen(navController: NavController) {
             items(categories) { category ->
                 CategoryCard(
                     category = category,
-                    navController = navController
+                    navController = navController,
+                    onCategorySelected = onCategorySelected
                 )
             }
         }
@@ -76,7 +80,8 @@ fun CityScreen(navController: NavController) {
 @Composable
 fun CategoryCard(
     category: Category,
-    navController: NavController
+    navController: NavController,
+    onCategorySelected: (Category) -> Unit = {}
 ) {
     val categoryName = stringResource(id = category.title)
 
@@ -87,6 +92,7 @@ fun CategoryCard(
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         onClick = {
+            onCategorySelected(category)
             navController.navigate("category/${category.type.name}")
         }
     ) {

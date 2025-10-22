@@ -47,7 +47,8 @@ import com.example.mycity.data.places
 @Composable
 fun CategoryScreen(
     navController: NavController,
-    categoryName: String
+    categoryName: String,
+    onPlaceSelected: (Place) -> Unit = {}
 ) {
     val currentCategory = Categories.entries.find { it.name == categoryName }
     val filteredPlaces = places.filter { it.category == currentCategory }
@@ -85,7 +86,11 @@ fun CategoryScreen(
             contentPadding = PaddingValues(16.dp)
         ) {
             items(filteredPlaces) { place ->
-                PlaceCard(place = place, navController = navController)
+                PlaceCard(
+                    place = place,
+                    navController = navController,
+                    onPlaceSelected = onPlaceSelected
+                )
             }
         }
     }
@@ -93,7 +98,11 @@ fun CategoryScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PlaceCard(place: Place, navController: NavController) {
+fun PlaceCard(
+    place: Place,
+    navController: NavController,
+    onPlaceSelected: (Place) -> Unit = {}
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -101,6 +110,7 @@ fun PlaceCard(place: Place, navController: NavController) {
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         onClick = {
+            onPlaceSelected(place)
             navController.navigate("detail/${place.id}")
         }
     ) {
