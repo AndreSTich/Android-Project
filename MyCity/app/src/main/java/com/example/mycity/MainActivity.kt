@@ -21,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.mycity.ui.theme.CityScreen
+import com.example.mycity.ui.theme.DetailScreen
 import com.example.mycity.ui.theme.MyCityTheme
 
 class MainActivity : ComponentActivity() {
@@ -56,6 +57,13 @@ fun CityApp() {
             CategoryScreen(
                 navController = navController,
                 categoryName = categoryName
+            )
+        }
+        composable("detail/{placeId}") { backStackEntry ->
+            val placeId = backStackEntry.arguments?.getString("placeId")?.toIntOrNull() ?: 0
+            DetailScreen(
+                navController = navController,
+                placeId = placeId
             )
         }
     }

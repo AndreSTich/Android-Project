@@ -8,5 +8,6 @@ data class Place(
     @StringRes val title: Int,
     val rating: Double,
     @DrawableRes val imageRes: Int,
-    val category: Categories
+    val category: Categories,
+    @StringRes val description: Int
 )

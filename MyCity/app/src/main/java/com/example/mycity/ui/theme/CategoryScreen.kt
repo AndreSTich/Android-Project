@@ -85,7 +85,7 @@ fun CategoryScreen(
             contentPadding = PaddingValues(16.dp)
         ) {
             items(filteredPlaces) { place ->
-                PlaceCard(place = place)
+                PlaceCard(place = place, navController = navController)
             }
         }
     }
@@ -93,7 +93,7 @@ fun CategoryScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PlaceCard(place: Place) {
+fun PlaceCard(place: Place, navController: NavController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -101,7 +101,7 @@ fun PlaceCard(place: Place) {
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         onClick = {
-            // Можно добавить переход на детальную страницу объекта
+            navController.navigate("detail/${place.id}")
         }
     ) {
         Row(
