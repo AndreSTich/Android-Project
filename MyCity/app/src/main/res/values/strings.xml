@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyCity</string>
+    <string name="city">Альметьевск</string>
+    <string name="park">Парки</string>
+    <string name="cafe">Кафе</string>
+    <string name="sight">Достопримечательности</string>
 </resources>
