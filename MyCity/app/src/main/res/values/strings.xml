@@ -4,4 +4,14 @@
     <string name="park">Парки</string>
     <string name="cafe">Кафе</string>
     <string name="sight">Достопримечательности</string>
+
+    <string name="sight1">Памятник нефти</string>
+    <string name="sight2">Памятник нефтяникам</string>
+    <string name="sight3">Торжественная арка</string>
+
+    <string name="cafe1">Вкусно и точка</string>
+    <string name="cafe2">Lamore Mio</string>
+
+    <string name="park1">Городской парк</string>
+    <string name="park2">Парк Здоровья</string>
 </resources>

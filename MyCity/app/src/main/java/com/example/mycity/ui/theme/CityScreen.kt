@@ -56,7 +56,7 @@ fun CityScreen() {
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color(0xFFE1F5FE),
-                    titleContentColor = Color(0xFF01579B)
+                    titleContentColor = Color.Black
             )
             )
         }
