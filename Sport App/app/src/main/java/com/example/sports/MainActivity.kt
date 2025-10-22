@@ -21,6 +21,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Surface
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import com.example.sports.ui.SportsApp
 import com.example.sports.ui.theme.SportsTheme
 
@@ -34,7 +35,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             SportsTheme {
                 Surface {
-                    SportsApp()
+                    val windowSize = calculateWindowSizeClass(this)
+                    SportsApp(windowSize = windowSize.widthSizeClass)
                 }
             }
         }
