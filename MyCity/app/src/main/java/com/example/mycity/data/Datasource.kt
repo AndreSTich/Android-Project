@@ -2,13 +2,13 @@ package com.example.mycity.data
 
 import com.example.mycity.R
 
-enum class Categories {
-    SIGHT, PARK, CAFE
+enum class Categories (name: String) {
+    SIGHT(name = "Достопримечательности"), PARK(name = "Парки"), CAFE(name = "Кафе")
 }
 val categories = listOf(
-    Category(1, R.string.sight, R.drawable.sight),
-    Category(2, R.string.cafe, R.drawable.cafe),
-    Category(3, R.string.park, R.drawable.park)
+    Category(1, R.string.sight, R.drawable.sight, Categories.SIGHT),
+    Category(2, R.string.cafe, R.drawable.cafe, Categories.CAFE),
+    Category(3, R.string.park, R.drawable.park, Categories.PARK)
 )
 
 val places = listOf(

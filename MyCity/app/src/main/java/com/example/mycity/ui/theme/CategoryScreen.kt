@@ -39,15 +39,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.mycity.data.Categories
 import com.example.mycity.data.Place
 import com.example.mycity.data.places
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CategoryDetailScreen(
+fun CategoryScreen(
     navController: NavController,
     categoryName: String
 ) {
+    val currentCategory = Categories.entries.find { it.name == categoryName }
+    val filteredPlaces = places.filter { it.category == currentCategory }
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -65,8 +69,8 @@ fun CategoryDetailScreen(
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Up",
-                            tint = Color(0xFF01579B)
+                            contentDescription = "Назад",
+                            tint = Color.Black
                         )
                     }
                 }
@@ -80,7 +84,7 @@ fun CategoryDetailScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(16.dp)
         ) {
-            items(places) { place ->
+            items(filteredPlaces) { place ->
                 PlaceCard(place = place)
             }
         }
@@ -96,7 +100,9 @@ fun PlaceCard(place: Place) {
             .height(120.dp),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        onClick = {}
+        onClick = {
+            // Можно добавить переход на детальную страницу объекта
+        }
     ) {
         Row(
             modifier = Modifier
@@ -106,7 +112,7 @@ fun PlaceCard(place: Place) {
         ) {
             Image(
                 painter = painterResource(id = place.imageRes),
-                contentDescription = "Изображение ${place.title}",
+                contentDescription = "Изображение ${stringResource(place.title)}",
                 modifier = Modifier
                     .size(96.dp)
                     .clip(RoundedCornerShape(8.dp)),

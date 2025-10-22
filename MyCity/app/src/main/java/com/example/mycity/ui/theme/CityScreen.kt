@@ -32,19 +32,14 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.mycity.R
 import com.example.mycity.data.Category
 import com.example.mycity.data.categories
 
-
-@Composable
-fun CityApp() {
-    CityScreen()
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CityScreen() {
+fun CityScreen(navController: NavController) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -57,7 +52,7 @@ fun CityScreen() {
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color(0xFFE1F5FE),
                     titleContentColor = Color.Black
-            )
+                )
             )
         }
     ) { innerPadding ->
@@ -69,21 +64,31 @@ fun CityScreen() {
             contentPadding = PaddingValues(16.dp)
         ) {
             items(categories) { category ->
-                CategoryCard(category = category)
+                CategoryCard(
+                    category = category,
+                    navController = navController
+                )
             }
         }
     }
 }
 
 @Composable
-fun CategoryCard(category: Category) {
+fun CategoryCard(
+    category: Category,
+    navController: NavController
+) {
+    val categoryName = stringResource(id = category.title)
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(120.dp),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        onClick = {}
+        onClick = {
+            navController.navigate("category/${category.type.name}")
+        }
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Image(
@@ -95,9 +100,9 @@ fun CategoryCard(category: Category) {
                 contentScale = ContentScale.Crop,
                 alpha = 0.6f
             )
-            Box () {
+            Box {
                 Text(
-                    text = stringResource(category.title),
+                    text = categoryName,
                     fontWeight = FontWeight.Bold,
                     fontSize = 22.sp,
                     fontStyle = FontStyle.Italic,
