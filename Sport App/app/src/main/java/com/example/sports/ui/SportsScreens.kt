@@ -78,7 +78,7 @@ import com.example.sports.utils.SportsContentType
  */
 @Composable
 fun SportsApp(
-    windowSize: WindowWidthSizeClass
+    windowSize: WindowWidthSizeClass,
 ) {
     val viewModel: SportsViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
@@ -391,7 +391,7 @@ fun SportsListAndDetails(
             contentPadding = PaddingValues(
                 top = contentPadding.calculateTopPadding(),
             ),
-            onBackPressed = onBackPressed,
+            onBackPressed = { },
         )
     }
 }
